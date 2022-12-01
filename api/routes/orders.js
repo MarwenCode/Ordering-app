@@ -3,7 +3,7 @@ import Order from "../models/Order.js";
 
 const orderRoute = express.Router();
 
-//create a product
+//create an order
 orderRoute.post("/", async(req, res) => {
     try {
         const newOrder = new Order(req.body);
@@ -16,7 +16,7 @@ orderRoute.post("/", async(req, res) => {
     }
 });
 
-//get all products
+//get all orders
 orderRoute.get("/", async(req, res) => {
     try {
         const orders = await Order.find();
@@ -28,7 +28,7 @@ orderRoute.get("/", async(req, res) => {
     }
 })
 
-//get a single product
+//get a single order
 orderRoute.get("/", async(req,body) => {
     try {
         const order = await Order.findById(req.params.id);
