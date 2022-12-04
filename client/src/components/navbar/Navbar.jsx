@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from "react-router-dom"
 import "./navbar.scss";
-import { FaShoppingCart } from "react-icons/fa"
+import { FaShoppingCart } from "react-icons/fa";
+import { useSelector } from 'react-redux';
 
 const Navbar = () => {
+  const quantity = useSelector(state => state.cart.quantity)
   return (
     <div className='navbar'>
         <div className="left">
@@ -29,7 +31,7 @@ const Navbar = () => {
             <div className="cart">
             {/* <img src="/img/cart.png" alt="" width="30px" height="30px" /> */}
            <FaShoppingCart />
-          <div className="counter">2</div>
+          <div className="counter">{quantity}</div>
 
             </div>
 
