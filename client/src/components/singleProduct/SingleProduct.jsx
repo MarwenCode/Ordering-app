@@ -3,6 +3,7 @@ import React, {useState, useEffect} from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 import "./singleproduct.scss";
 import { useDispatch } from "react-redux";
+import {addProduct } from "../../redux/cartSlice"
 
 const SingleProduct = () => {
 
@@ -11,12 +12,12 @@ const [singleProduct, setSingleProduct] = useState([]);
 const [price, setPrice] = useState(12);
 const [size, setSize] = useState(0);
 const [quantity, setQuantity] = useState(1);
-const [extras, setExtras] = useState([]);
+// const [extras, setExtras] = useState([]);
 
 
 const dispatch = useDispatch()
 
-console.log(extras);
+// console.log(extras);
 const changePrice = (number) => {
   setPrice(price + number);
 };
@@ -27,17 +28,17 @@ const handleSize = (sizeIndex) => {
   changePrice(number);
 };
 
-const handleChangeExtras = (e, option) => {
-  const checked = e.target.checked;
+// const handleChangeExtras = (e, option) => {
+//   const checked = e.target.checked;
 
-  if (checked) {
-    changePrice(option.price);
-    setExtras((prev) => [...prev, option]);
-  } else {
-    changePrice(-option.price);
-    setExtras(extras.filter((extra) => extra._id !== option._id));
-  }
-};
+//   if (checked) {
+//     changePrice(option.price);
+//     setExtras((prev) => [...prev, option]);
+//   } else {
+//     changePrice(-option.price);
+//     setExtras(extras.filter((extra) => extra._id !== option._id));
+//   }
+// };
 
 const location = useLocation();
 console.log(location);
@@ -50,15 +51,18 @@ useEffect(() => {
     const fetchSingleProduct = async () => {
         const res = await axios.get(`/products/${path}`);
         setSingleProduct(res.data)
+     
     }
 
     fetchSingleProduct()
-}, [])
+}, [path])
 console.log(singleProduct)
 console.log(singleProduct.extraOptions)
 
 
-
+const handleClick = () => {
+  dispatch(addProduct({...singleProduct,  price, quantity}));
+};
 
   return (
     <div className='singleProduct'>
@@ -86,10 +90,10 @@ console.log(singleProduct.extraOptions)
             <span className="number">Large</span>
           </div>
         </div>
-        <h3 className="choose">Choose additional ingredients</h3>
+        {/* <h3 className="choose">Choose additional ingredients</h3> */}
         <div className="ingredients">
            
-          {singleProduct.extraOptions.map((option) => (
+          {/* {singleProduct.extraOptions.map((option) => (
             <div className="option" key={option._id} >
               <input
                 type="checkbox"
@@ -101,18 +105,18 @@ console.log(singleProduct.extraOptions)
               <label htmlFor="double">{option.text}</label>
           
             </div>
-          ))} 
+          ))}  */}
 
       
         </div>
         <div className="add">
           <input
             type="number"
-            // defaultValue={1}
-            // className={styles.quantity}
-            // onChange={(e) => setQuantity(e.target.value)}
+            defaultValue={1}
+            className="quantity"
+            onChange={(e) => setQuantity(e.target.value)}
           />
-          <button className="button"   >Add to Cart</button>
+          <button className="button"  onClick={handleClick}  >Add to Cart</button>
         </div>
       </div>
 
@@ -120,4 +124,4 @@ console.log(singleProduct.extraOptions)
   )
 }
 
-export default SingleProduct
+export default SingleProduct 

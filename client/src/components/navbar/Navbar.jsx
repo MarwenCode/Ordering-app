@@ -26,7 +26,7 @@ const Navbar = () => {
               <img src="/img/city.png" />
             </div>
         </div>
-       
+        <Link to="/cart">
         <div className="right">
             <div className="cart">
             {/* <img src="/img/cart.png" alt="" width="30px" height="30px" /> */}
@@ -36,6 +36,9 @@ const Navbar = () => {
             </div>
 
         </div>
+        
+        </Link>
+      
 
     </div>
   )

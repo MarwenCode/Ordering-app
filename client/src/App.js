@@ -4,6 +4,7 @@ import Navbar from "./components/navbar/Navbar";
 import Home from "./pages/home/Home";
 import "./app.scss"
 import SingleProduct from "./components/singleProduct/SingleProduct";
+import Cart from './components/cart/Cart';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Routes>
           
             <Route path="/" element={<Home />} />
+            <Route path="/cart" element={<Cart />} />
             <Route path="/products/:id" element={<SingleProduct />} />
 
       
