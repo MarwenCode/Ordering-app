@@ -22,9 +22,12 @@ const Navbar = () => {
 
         </div>
         <div className="center">
-            <div className="title">
+          <Link to="/">
+          <div className="title">
               <img src="/img/city.png" />
             </div>
+          </Link>
+        
         </div>
         <Link to="/cart">
         <div className="right">

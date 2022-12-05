@@ -124,4 +124,4 @@ const handleClick = () => {
   )
 }
 
-export default SingleProduct 
+export default SingleProduct

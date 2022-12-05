@@ -3,6 +3,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    // overflow: hidden;
+  
+   
 
     // .title{
     //    margin-left: 50px;
@@ -15,11 +18,16 @@
       }
       
       .wrapper {
-        width: 100%;
+        width: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
         flex-wrap: wrap;
+        // width: 750px;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 20px;
+        background: white;
       }
   }
   
