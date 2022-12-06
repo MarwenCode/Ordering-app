@@ -79,6 +79,15 @@ tr{
   margin-top: 20px;
 }
 
+.payButton{
+  background-color: antiquewhite;
+  font-weight: 700;
+  width: 100%;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 480px) {
   .container {
     flex-direction: column;

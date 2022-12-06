@@ -29,7 +29,7 @@ orderRoute.get("/", async(req, res) => {
 })
 
 //get a single order
-orderRoute.get("/:id", async(req,body) => {
+orderRoute.get("/:id", async(req,res) => {
     try {
         const order = await Order.findById(req.params.id);
         res.status(200).json(order)

@@ -1,30 +1,58 @@
-import React from 'react';
+import axios from 'axios';
+import React, {useEffect, useState} from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import cartSlice from '../../redux/cartSlice';
 import "./orders.scss"
+import { useLocation, useParams } from 'react-router-dom';
 
 const Orders = () => {
+  const cart = useSelector((state) => state.cart);
+  const [order, setOrder] = useState([])
+
+  const location = useLocation();
+console.log(location);
+const path = location.pathname.split("/")[2];
+console.log(path);
+
+
+
+
+  useEffect(() => {
+    const fetchOrder = async() => {
+      const res = await axios.get(`/orders/${path}`);
+      console.log(res.data);
+      setOrder(res.data)
+    }
+    fetchOrder()
+  }, [path])
+  
+
+  console.log(order)
+
+
   return (
     <div className="orders">
       <div className="left">
         <div className="row">
           <table className="table">
             <tr className="trTitle">
-              <th>Order ID</th>
-              <th>Customer</th>
-              <th>Address</th>
-              <th>Total</th>
+              <th>OrderID</th>
+              <th className='customer'>Customer</th>
+              <th className='adress'>Address</th>
+              <th className='total'>Total</th>
             </tr>
             <tr className="tr">
             <td>
-                <span className="id">{}</span>
+                <span className="id">{order._id}</span>
               </td>
               <td>
-                <span className="name">{}</span>
+                <span className="name">{order.customer}</span>
               </td>
               <td>
-                <span className="address">{}</span>
+                <span className="address">{order.address}</span>
               </td>
               <td>
-                <span className="total">${}</span>
+                <span className="total">${order.total}</span>
               </td>
             </tr>
           </table>
@@ -84,23 +112,23 @@ const Orders = () => {
           </div>
         </div>
       </div>
-      <div className="right">
+      {/* <div className="right">
         <div className="wrapper">
           <h2 className="title">CART TOTAL</h2>
           <div className="totalText">
-            <b className="totalTextTitle">Subtotal:</b>$79.60
+            <b className="totalTextTitle">Subtotal:</b>${order.total}
           </div>
           <div className="totalText">
             <b className="totalTextTitle">Discount:</b>$0.00
           </div>
           <div className="totalText">
-            <b className="totalTextTitle">Total:</b>$79.60
+            <b className="totalTextTitle">Total:</b>${order.total}
           </div>
           <button disabled className="button">
             PAID
           </button>
         </div>
-      </div>
+      </div> */}
     </div>
   )
 }

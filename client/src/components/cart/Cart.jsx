@@ -10,13 +10,14 @@ import {
   usePayPalScriptReducer,
 } from "@paypal/react-paypal-js";
 import "./cart.scss";
+import OrderDetails from "../orderDetails/OrderDetails";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
 
   console.log(cart);
   const [open, setOpen] = useState(false);
-  const [cash, setCash] = useState(true);
+  const [cash, setCash] = useState(false);
   const [adress, setAdress] = useState([]);
 
   const amount = cart.total;
@@ -182,9 +183,11 @@ const Cart = () => {
             <div className="paymentMethods">
               <button
                 className="payButton"
-                // onClick={() => setCash(true)}
-                onClick={(e) => createOrder(e)}>
-                CASH ON DELIVERY
+                onClick={() => setCash(true)}
+                // onClick={(e) => createOrder(e)}
+                
+                >
+                Order & delevery
               </button>
               <PayPalScriptProvider
                 options={{
@@ -199,11 +202,13 @@ const Cart = () => {
             </div>
           ) : (
             <button onClick={() => setOpen(true)} className="button">
-              CHECKOUT NOW!
+            Order
             </button>
           )}
         </div>
       </div>
+      {cash && <OrderDetails /> }
+      
     </div>
   );
 };

@@ -1,6 +1,7 @@
 .orders {
     padding: 50px;
     display: flex;
+    color:black;
   }
   
   .left {
@@ -11,7 +12,28 @@
     width: 100%;
     text-align: left;
     margin-bottom: 50px;
+    .trTitle {
+
+      .customer {
+        margin-left: 120px;
+      }
+      .adress{
+        margin-left: -30px;
+      }
+      .total {
+        margin-left: -50px;
+        font-weight: 700;
+      }
+    }
   }
+
+  .name {
+//  margin-left: 350px;
+  }
+
+.tr{
+  margin-right: 180px;
+}
   
   .row:last-child {
     width: 80%;
@@ -98,29 +120,29 @@
       font-size: 20px;
     }
   
-    .id::before {
-      content: "Order ID: ";
-      font-weight: 500;
-    }
-    .name::before {
-      content: "Customer: ";
-      font-weight: 500;
-    }
-    .address::before {
-      content: "Address: ";
-      font-weight: 500;
-    }
-    .total::before {
-      content: "Total: ";
-      font-weight: 500;
-    }
+    // .id::before {
+    //   content: "Order ID: ";
+    //   font-weight: 500;
+    // }
+    // .name::before {
+    //   content: "Customer: ";
+    //   font-weight: 500;
+    // }
+    // .address::before {
+    //   content: "Address: ";
+    //   font-weight: 500;
+    // }
+    // .total::before {
+    //   content: "Total: ";
+    //   font-weight: 500;
+    // }
   
-    .row:last-child {
-      width: 100%;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
+    // .row:last-child {
+    //   width: 100%;
+    //   flex-direction: column;
+    //   align-items: center;
+    //   justify-content: center;
+    // }
   
     .done,
     .undone,
