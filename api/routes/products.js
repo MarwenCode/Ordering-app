@@ -40,6 +40,24 @@ productRoute.get("/:id", async(req,res) => {
     }
 })
 
+//delete a product
+productRoute.delete("/:id", async(req, res) => {
+    try {
+        const product = await Product.findById(req.params.id)
+        try {
+            await product.deleteOne();
+            res.status(200).json("product has been deleted")
+            
+        } catch (error) {
+            res.status(500).json(error)
+            
+        }
+        
+    } catch (error) {
+        res.status(500).json(error)
+    }
+})
+
 
 
 

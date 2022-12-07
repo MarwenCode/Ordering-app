@@ -1,0 +1,59 @@
+.admin {
+    padding: 50px;
+    display: flex;
+ 
+
+    
+
+    .ProductsItem {
+        
+        background-color: aqua;
+        margin-left: -45px;
+
+        .table {
+            width: 100%;
+            border-spacing: 20px;
+            text-align: left;
+
+            .trTitle {
+                
+            }
+
+
+          }
+          
+          .button {
+            border: none;
+            color: white;
+            padding: 5px;
+            cursor: pointer;
+          }
+          
+          .button:first-child {
+            background-color: teal;
+            margin-right: 10px;
+          }
+          
+          .button:last-child {
+            background-color: crimson;
+          }
+      }
+
+      .OrdersItem{
+        background-color: rgb(79, 82, 82);
+        // margin-left: -250px;
+       
+
+
+        .trTitleOrder{
+           
+        }
+
+
+
+
+      }
+      
+    
+  }
+  
