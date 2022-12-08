@@ -5,7 +5,10 @@ import axios from "axios";
 
 const Admin = () => {
     const [products, setProducts] = useState([]);
-    const [order, setOrder] = useState([])
+    const [orders, setOrders] = useState([]);
+    const status = ["preparing", "on the way", "delivered"];
+ 
+  // console.log(status)
 
     // fetch products
 
@@ -40,13 +43,37 @@ const Admin = () => {
       const fetchOrder = async() => {
         const res = await axios.get("/orders");
         console.log(res.data);
-        setOrder(res.data)
+        setOrders(res.data)
       }
       fetchOrder()
     }, [])
     
   
-    console.log(order)
+    console.log(orders);
+
+ // change status of orders
+ const handleStatus = async(id) => {
+  // const status = ["preparing", "on the way", "delivered"];
+  const item = orders.filter((order) => order._id === id)[0];
+  const currentStatus = item.status
+  console.log(currentStatus)
+
+  try {
+    const res = await axios.put("/orders/" + id, {
+      status: currentStatus + 1
+    });
+    setOrders([
+      res.data,
+      ...orders.filter((order) => order._id !== id),
+    ])
+    
+  } catch (error) {
+    
+  }
+
+
+
+ }
 
 
 
@@ -54,8 +81,14 @@ const Admin = () => {
 
   return (
     <div className="admin">
+    
     <div className="ProductsItem">
+      <div className="header">
       <h1 className="title">Products</h1>
+      <button className="productBtn">Create a Product</button>
+      </div>
+    
+      
       <table className="table">
         <tbody>
           <tr className="trTitle">
@@ -104,22 +137,23 @@ const Admin = () => {
             <th>Customer</th>
             <th>Total</th>
             {/* <th>Payment</th> */}
-            {/* <th>Status</th> */}
+            <th>Status</th>
             <th>Action</th>
           </tr>
         </tbody>
-        {order.map((order) => (
+        {orders.map((order) => (
           <tbody key={order._id}>
             <tr className="trTitle">
               <td>{order._id.slice(0, 5)}...</td>
               <td>{order.customer}</td>
               <td>${order.total}</td>
+              {/* <td>
+                {order.method === 0 ? <span>cash</span> : <span>paid</span>}
+              </td> */}
+              <td>{status[order.status]}</td>
+              {/* <td>{order.status}</td> */}
               <td>
-                {/* {order.method === 0 ? <span>cash</span> : <span>paid</span>} */}
-              </td>
-              {/* <td>{status[order.status]}</td> */}
-              <td>
-                <button >
+                <button className="nextBtn" onClick={() => handleStatus(order._id)}>
                   Next Stage
                 </button>
               </td>

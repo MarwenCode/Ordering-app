@@ -41,6 +41,25 @@ orderRoute.get("/:id", async(req,res) => {
 })
 
 
+//update an order
+orderRoute.put("/:id", async(req, res) => {
+    try {
+        const updatedOrder = await Order.findByIdAndUpdate(
+            req.params.id,
+            {$set:req.body},
+            { new: true}
+            
+            );
+        // const updatedOrder = await Order.findByIdAndUpdate(id, req.body, {
+        //     new: true,
+        //   });
+            res.status(200).json(updatedOrder)
+        
+    } catch (error) {
+        res.status(500).json(error)
+    }
+})
+
 
 
 

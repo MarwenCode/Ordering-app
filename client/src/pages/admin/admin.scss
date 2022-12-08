@@ -1,6 +1,6 @@
 .admin {
     padding: 50px;
-    display: flex;
+    // display: flex;
  
 
     
@@ -8,10 +8,30 @@
     .ProductsItem {
         
         background-color: aqua;
-        margin-left: -45px;
+        // margin-left: -45px;
+        .header{
+          display: flex;
+
+          .productBtn{
+            // height: 25px;
+            margin-top: 10px;
+            margin-left: 25px;
+            background-color: teal;
+            border: none;
+            color: white;
+            padding: 5px;
+            cursor: pointer;
+            font-size: large;
+            padding: 10px;
+          }
+        }
+        
+     
+        
+      
 
         .table {
-            width: 100%;
+          
             border-spacing: 20px;
             text-align: left;
 
@@ -42,11 +62,13 @@
       .OrdersItem{
         background-color: rgb(79, 82, 82);
         // margin-left: -250px;
+   
+     
        
 
 
         .trTitleOrder{
-           
+          
         }
 
 
