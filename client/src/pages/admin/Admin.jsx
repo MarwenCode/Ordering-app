@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./admin.scss";
 import axios from "axios";
+import AddProduct from "../../components/addProduct/AddProduct";
 
 
 const Admin = () => {
@@ -162,8 +163,10 @@ const Admin = () => {
         ))}
       </table>
     </div>
+    <AddProduct />
   </div>
   )
 }
 
 export default Admin
+
