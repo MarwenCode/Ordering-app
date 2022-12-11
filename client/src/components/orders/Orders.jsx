@@ -58,7 +58,7 @@ console.log(path);
           </table>
         </div>
         <div className="row">
-          <div >
+          {/* <div >
             <img src="/img/paid.png" width={30} height={30} alt="" />
             <span>Payment</span>
             <div className="checkedIcon">
@@ -70,8 +70,8 @@ console.log(path);
                 alt=""
               />
             </div>
-          </div>
-          <div >
+          </div> */}
+          <div className='inProgress' >
             <img src="/img/bake.png" width={30} height={30} alt="" />
             <span>Preparing</span>
             <div className="checkedIcon">
@@ -84,9 +84,9 @@ console.log(path);
               />
             </div>
           </div>
-          <div >
+          <div  className='undone'>
             <img src="/img/bike.png" width={30} height={30} alt="" />
-            <span>On the way</span>
+            <span >On the way</span>
             <div className="checkedIcon">
               <img
                 className="checkedIcon"
@@ -97,7 +97,7 @@ console.log(path);
               />
             </div>
           </div>
-          <div >
+          <div className='undone'>
             <img src="/img/delivered.png" width={30} height={30} alt="" />
             <span>Delivered</span>
             <div className="checkedIcon">

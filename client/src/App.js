@@ -7,6 +7,7 @@ import SingleProduct from "./components/singleProduct/SingleProduct";
 import Cart from './components/cart/Cart';
 import Orders from './components/orders/Orders';
 import Admin from './pages/admin/Admin';
+import Footer from './components/footer/Footer';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
     
       </Routes>
     </div>
+    <Footer />
     {/* <ToastContainer /> */}
   </Router>
   );
