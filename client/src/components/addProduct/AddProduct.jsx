@@ -31,7 +31,8 @@ const AddProduct = () => {
         prices,
         img: url,
       };
-      await axios.post("/products", newProduct)
+      // await axios.post("/products", newProduct)
+      await axios.post("https://ordering-app-api.onrender.com/api/products", newProduct)
       setCloseBtn(true)
       
     } catch (error) {

@@ -8,7 +8,8 @@ const Products = () => {
 
     useEffect(() => {
       const fetchProducts = async () => {
-        const res = await axios.get("/products");
+        // const res = await axios.get("/products");
+        const res = await axios.get("https://ordering-app-api.onrender.com/api/products");
         console.log(res);
         setProducts(res.data);
       };

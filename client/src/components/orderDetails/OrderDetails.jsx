@@ -24,7 +24,8 @@ const OrderDetails = () => {
         };
     
         try {
-          const res = await axios.post("/orders", newOrder);
+          // const res = await axios.post("/orders", newOrder);
+          const res = await axios.post("https://ordering-app-api.onrender.com/api/orders", newOrder);
           console.log(res);
         //   setOrders(res.data);
         //   setAdress(res.data.adress)

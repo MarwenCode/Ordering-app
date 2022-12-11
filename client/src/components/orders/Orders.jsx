@@ -19,7 +19,8 @@ console.log(path);
 
   useEffect(() => {
     const fetchOrder = async() => {
-      const res = await axios.get(`/orders/${path}`);
+      // const res = await axios.get(`/orders/${path}`);
+      const res = await axios.get(`https://ordering-app-api.onrender.com/api/orders/${path}`);
       console.log(res.data);
       setOrder(res.data)
     }

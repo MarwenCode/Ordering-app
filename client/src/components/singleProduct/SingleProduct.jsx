@@ -49,7 +49,8 @@ console.log(path);
 
 useEffect(() => {
     const fetchSingleProduct = async () => {
-        const res = await axios.get(`/products/${path}`);
+        // const res = await axios.get(`/products/${path}`);
+        const res = await axios.get(`https://ordering-app-api.onrender.com/api/products/${path}`);
         setSingleProduct(res.data)
      
     }

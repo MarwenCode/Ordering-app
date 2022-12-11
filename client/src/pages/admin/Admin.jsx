@@ -18,7 +18,8 @@ const Admin = () => {
 
     useEffect(() => {
       const fetchProducts = async () => {
-        const res = await axios.get("/products");
+        // const res = await axios.get("/products");
+        const res = await axios.get("https://ordering-app-api.onrender.com/api/products");
         console.log(res);
         setProducts(res.data);
       };
@@ -31,7 +32,8 @@ const Admin = () => {
     //delete product
     const deleteProduct = async (productId) => {
       try {
-        await axios.delete(`/products/${productId}`);
+        // await axios.delete(`/products/${productId}`);
+        await axios.delete(`https://ordering-app-api.onrender.com/api/products/${productId}`);
         setProducts(products.filter((product) => product._id !== productId))
         
       } catch (error) {
@@ -45,7 +47,8 @@ const Admin = () => {
  // fetch orders 
     useEffect(() => {
       const fetchOrder = async() => {
-        const res = await axios.get("/orders");
+        // const res = await axios.get("/orders");
+        const res = await axios.get("https://ordering-app-api.onrender.com/api/orders");
         console.log(res.data);
         setOrders(res.data)
       }
@@ -63,7 +66,9 @@ const Admin = () => {
   console.log(currentStatus)
 
   try {
-    const res = await axios.put("/orders/" + id, {
+    // const res = await axios.put("/orders/" +
+    const res = await axios.put("https://ordering-app-api.onrender.com/api/orders/" +
+     id, {
       status: currentStatus + 1
     });
     setOrders([
