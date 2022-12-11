@@ -7,6 +7,9 @@ import AddProduct from "../../components/addProduct/AddProduct";
 const Admin = () => {
     const [products, setProducts] = useState([]);
     const [orders, setOrders] = useState([]);
+    const [showModal, setShowModal] = useState(false);
+   
+  
     const status = ["preparing", "on the way", "delivered"];
  
   // console.log(status)
@@ -86,7 +89,7 @@ const Admin = () => {
     <div className="ProductsItem">
       <div className="header">
       <h1 className="title">Products</h1>
-      <button className="productBtn">Create a Product</button>
+      <button className="productBtn" onClick={() => setShowModal((prev) => !prev)}>Create a Product</button>
       </div>
     
       
@@ -163,7 +166,11 @@ const Admin = () => {
         ))}
       </table>
     </div>
-    <AddProduct />
+    {showModal && (
+        <AddProduct  />
+
+    )}
+  
   </div>
   )
 }
